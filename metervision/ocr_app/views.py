@@ -3,6 +3,7 @@ from django.http import JsonResponse
 from PIL import Image
 import pytesseract
 import easyocr
+import numpy as np
 
 def ocr(request):
     if request.method == 'POST' and request.FILES['image']:
@@ -14,13 +15,12 @@ def ocr(request):
             text = pytesseract_ocr(image, custom_options)
             return render(request, 'ocr_app/result.html', {'text': text})
         elif selected_ocr == 'easyocr':
-            results = easyocr_ocr(image)
-            return render(request, 'easy_ocr/result.html', {'image': image, 'results': results})
+            results = easy_ocr(image)
+            return render(request, 'ocr_app/result.html', {'image': image, 'results': results})
         elif selected_ocr == 'both':
             text = pytesseract_ocr(image, custom_options)
-            results = easyocr_ocr(image)
+            results = easy_ocr(image)
             return render(request, 'ocr_app/result.html', {'text': text, 'image': image, 'results': results})
-
     return render(request, 'ocr_app/index.html')
 
 
@@ -33,8 +33,8 @@ def pytesseract_ocr(image, custom_options=None):
     return text
 
 
-def easyocr_ocr(image):
+def easy_ocr(image):
     image_data = Image.open(image)
-    reader = easyocr.Reader(['en'])  # Specify language
-    results = reader.readtext(image_data)
+    reader = easyocr.Reader(['en'], gpu=False)  # Specify language and cpu mode
+    results = ' '.join([item[1] for item in reader.readtext(np.array(image_data))])  # Convert image to numpy array
     return results
