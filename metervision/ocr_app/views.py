@@ -1,11 +1,13 @@
+"""This module contains the OCR engines"""
 from django.shortcuts import render
-from django.http import JsonResponse
 from PIL import Image
 import pytesseract
 import easyocr
 import numpy as np
 
+
 def ocr(request):
+    """This module calls pytesseract and easyocr"""
     if request.method == 'POST' and request.FILES['image']:
         image = request.FILES['image'].file
         selected_ocr = request.POST.get('ocr_type', 'pytesseract')  # Default to pytesseract if not specified
@@ -25,6 +27,7 @@ def ocr(request):
 
 
 def pytesseract_ocr(image, custom_options=None):
+    """Runs pytesseract engine"""
     img = Image.open(image)
     if custom_options:
         text = pytesseract.image_to_string(img, **custom_options)
@@ -34,6 +37,7 @@ def pytesseract_ocr(image, custom_options=None):
 
 
 def easy_ocr(image):
+    """Runs easyocr engine"""
     image_data = Image.open(image)
     reader = easyocr.Reader(['en'], gpu=False)  # Specify language and cpu mode
     results = ' '.join([item[1] for item in reader.readtext(np.array(image_data))])  # Convert image to numpy array
