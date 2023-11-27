@@ -2,7 +2,7 @@ from django.shortcuts import render
 import easyocr
 
 
-def process_image(request):
+def easy_ocr(request):
     if request.method == 'POST' and request.FILES['image']:
         image = request.FILES['image'].read()
         reader = easyocr.Reader(['en'])  # Specify language

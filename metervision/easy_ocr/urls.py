@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import process_image
+from .views import easy_ocr
 
 urlpatterns = [
-    path('', process_image, name='process_image'),
+    path('', easy_ocr, name='easy_ocr'),
 ]

@@ -43,7 +43,16 @@
 <body>
     <div class="container">
         <h2>OCR Result</h2>
-        <p>{{ text }}</p>
+        {% if text %}
+            <p>{{ text }}</p>
+        {% endif %}
+        {% if results %}
+            <ul>
+                {% for result in results %}
+                    <li>{{ result }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
     </div>
 </body>
 </html>

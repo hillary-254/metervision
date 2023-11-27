@@ -56,9 +56,13 @@
                 <span>Choose Image</span>
                 <input type="file" id="imageInput" name="image" accept="image/*" required>
             </label>
+            <br>
+            <input type="radio" name="ocr_type" value="pytesseract" checked> Pytesseract
+            <input type="radio" name="ocr_type" value="easyocr"> EasyOCR
+            <input type="radio" name="ocr_type" value="both"> Both
+            <br>
             <button type="submit" class="read-btn">Read Text</button>
         </form>
     </div>
-    
 </body>
 </html>
