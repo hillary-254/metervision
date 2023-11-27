@@ -4,10 +4,10 @@
 - PLATFORM: WINDOWS
 - PYTHON PACKAGES:
     - django
-    - pytesseract *powered by Tesseract Engine*
+    - pytesseract *powered by Tesseract Binary*
     - easyOCR
     - pytorch
-    - opencv
+    - pillow
 
 ---
-VERSION: 0.2.2
+VERSION: 0.2.3
