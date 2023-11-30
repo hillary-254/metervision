@@ -4,64 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OCR App</title>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background: linear-gradient(to bottom, #95c5ed, #cde4f8); /* Gradient from LightSkyBlue to LightSteelBlue */
-        }
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'ocr_app.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-        .container {
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 2em;
-            font-family: 'Arial', sans-serif;
-            color: #2c3e50; /* Midnight Blue */
-            margin-bottom: 20px;
-        }
-
-        .upload-btn, .read-btn {
-            display: inline-block;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 10px;
-            font-family: 'Arial', sans-serif;
-            cursor: pointer;
-        }
-
-        .upload-btn {
-            background-color: #3498db; /* Dodger Blue */
-            color: #fff;
-        }
-
-        .read-btn {
-            margin-top: 10px;
-            background-color: #2980b9; /* Belize Hole */
-            color: #fff;
-        }
-    </style>
 </head>
 <body>
     <div class="container">
-        <h1>OCR App</h1>
-        <form method="post" enctype="multipart/form-data">
+        <h1>OCR APP</h1>
+        <!-- New Form -->
+        <form class="form" method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            <label for="imageInput" class="upload-btn">
-                <span>Choose Image</span>
-                <input type="file" id="imageInput" name="image" accept="image/*" required>
+            <span class="form-title">Upload your Image</span>
+            <p class="form-paragraph">
+                jpg / jpeg / png
+            </p>
+            <label for="image-input" class="drop-container">
+                <span class="drop-title">Drop files here</span>
+                or
+                <input type="file" accept="image/*" id="file-input" name="image" required>
             </label>
-            <br>
-            <input type="radio" name="ocr_type" value="pytesseract" checked> Pytesseract
-            <input type="radio" name="ocr_type" value="easyocr"> EasyOCR
-            <input type="radio" name="ocr_type" value="both"> Both
-            <br>
-            <button type="submit" class="read-btn">Read Text</button>
+            <input type="radio" name="ocr_type" value="pytesseract" class="radio" id="radio-btn"> 
+            <label for="radio-btn" class="radio_label">Pytesseract</label>
+            <input type="radio" name="ocr_type" value="easyocr" class="radio">
+            <label for="radio-btn" class="radio_label">EasyOCR</label> 
+            <input type="radio" name="ocr_type" value="both" class="radio">
+            <label for="radio-btn" class="radio_label">Both</label>
+            <button type="submit" class="read-btn" >Read Text</button>
         </form>
     </div>
 </body>
