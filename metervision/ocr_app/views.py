@@ -15,14 +15,14 @@ def ocr(request):
 
         if selected_ocr == 'pytesseract':
             text = pytesseract_ocr(image, custom_options)
-            return render(request, 'ocr_app/result.html', {'text': text})
+            return render(request, 'ocr_app/index.html', {'text': text})
         elif selected_ocr == 'easyocr':
             results = easy_ocr(image)
-            return render(request, 'ocr_app/result.html', {'image': image, 'results': results})
+            return render(request, 'ocr_app/index.html', {'image': image, 'results': results})
         elif selected_ocr == 'both':
             text = pytesseract_ocr(image, custom_options)
             results = easy_ocr(image)
-            return render(request, 'ocr_app/result.html', {'text': text, 'image': image, 'results': results})
+            return render(request, 'ocr_app/index.html', {'text': text, 'image': image, 'results': results})
     return render(request, 'ocr_app/index.html')
 
 

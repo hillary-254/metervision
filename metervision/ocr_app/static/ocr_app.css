@@ -10,10 +10,33 @@ body {
 }
 
 .container {
+    display: flex;
+    flex-direction: row;
+}
+
+.results {
+    display: flex;
+    flex-direction: column;
+    margin-left: 100px;
+}
+
+.result-image {
     text-align: center;
+    border: 1px;
+    border-color: #9f9fa0;
+    border-style: solid;
+    border-radius: 20px;
+    margin-bottom: 40px;
+    width: 400px;
+}
+
+.result-text {
+    font-size: 30px;
+    color: #084cdf;
 }
 
 h1 {
+    text-align: center;
     font-size: 2em;
     color: #2c3e50;
     margin-bottom: 20px;
