@@ -44,7 +44,12 @@
             <div class="result-image">
                 <h2>Uploaded Image</h2>
                 <!-- TODO: Implement this -->
-                <img src="" alt="No Image Uploaded"/>
+                
+                {% if image_url %}
+                    <img src="{{ image_url }}" alt="Uploaded Image"/>
+                {% else %}
+                     <p>No Image Uploaded!</p>
+                {% endif %}
             </div>
             <div class="result-image">
                 <h2>Processed Result</h2>
