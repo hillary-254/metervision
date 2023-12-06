@@ -46,7 +46,9 @@
                 <!-- TODO: Implement this -->
                 
                 {% if image_url %}
-                    <img src="{{ image_url }}" alt="Uploaded Image"/>
+                    <!-- <img src="{{ image_url.image.url }}" alt="Uploaded Image"/> -->
+                    <img src="/media/{{image_url}}" alt="Uploaded Image"/>
+                    <p>{{image_url}}</p>
                 {% else %}
                      <p>No Image Uploaded!</p>
                 {% endif %}

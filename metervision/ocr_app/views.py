@@ -7,6 +7,7 @@ import numpy as np
 import os
 from django.conf import settings
 from .models import Ocr
+import uuid
 
 
 def ocr(request):
@@ -16,18 +17,18 @@ def ocr(request):
         selected_ocr = request.POST.get('ocr_type', 'pytesseract')
         custom_options = {'config': '--psm 6 outputbase digits'}
 
+        # Save the uploaded image and its path to the database
+        image_url = save_uploaded_image(image)
+
         if selected_ocr == 'pytesseract':
             text = pytesseract_ocr(image, custom_options)
-            image_url = save_uploaded_image(image)
             return render(request, 'ocr_app/index.html', {'text': text, 'image_url': image_url})
         elif selected_ocr == 'easyocr':
             results = easy_ocr(image)
-            image_url = save_uploaded_image(image)
             return render(request, 'ocr_app/index.html', {'image_url': image_url, 'results': results})
         elif selected_ocr == 'both':
             text = pytesseract_ocr(image, custom_options)
             results = easy_ocr(image)
-            image_url = save_uploaded_image(image)
             return render(request, 'ocr_app/index.html', {'text': text, 'image_url': image_url, 'results': results})
     return render(request, 'ocr_app/index.html', {'image_url': None})
 
@@ -51,9 +52,35 @@ def easy_ocr(image):
     return results
 
 
+# def save_uploaded_image(image):
+#     # Save the uploaded image to a temporary location
+#     image_data = Image.open(image)
+#     image_path = os.path.join(settings.MEDIA_ROOT, 'uploaded_image.jpg')
+#     image_data.save(image_path)
+#     # Save the image path to the database
+#     Ocr.objects.create(uploaded_image=image_path)
+#     return image_path
+
 def save_uploaded_image(image):
+    # Generate a unique filename
+    unique_filename = f"{uuid.uuid4()}.jpg"
+
     # Save the uploaded image to a temporary location
     image_data = Image.open(image)
-    image_path = os.path.join(settings.MEDIA_ROOT, 'uploaded_image.jpg')
+    
+    # Convert the image to RGB mode if it has an alpha channel
+    if image_data.mode == 'RGBA':
+        image_data = image_data.convert('RGB')
+
+    # Construct the full path to save the image
+    image_path = os.path.join(settings.MEDIA_ROOT, unique_filename)
+
+    # Save the image
     image_data.save(image_path)
+
+    # Save the relative path to the database
+    relative_path = os.path.relpath(image_path, settings.MEDIA_ROOT)
+    Ocr.objects.create(uploaded_image=relative_path)
+
+    # Return the full path for potential further use
     return image_path
