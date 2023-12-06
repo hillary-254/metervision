@@ -10,4 +10,4 @@
     - pillow
 
 ---
-VERSION: 0.2.3
+VERSION: 0.2.4 < Based on 0.3.2
