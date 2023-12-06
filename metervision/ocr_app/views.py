@@ -1,4 +1,4 @@
-"""This module contains the OCR engines"""
+"""This module opens an image, reads, saves it then runs the OCR engines"""
 from django.shortcuts import render
 from PIL import Image
 import pytesseract
@@ -15,7 +15,7 @@ def ocr(request):
     if request.method == 'POST' and request.FILES['image']:
         image = request.FILES['image'].file
         selected_ocr = request.POST.get('ocr_type', 'pytesseract')
-        custom_options = {'config': '--psm 6 outputbase digits'}
+        custom_options = {'config': '--psm 6 outputbase digits'} # pytesseract input options
 
         # Save the uploaded image and its path to the database
         image_url = save_uploaded_image(image)
@@ -51,17 +51,8 @@ def easy_ocr(image):
     results = ' '.join([item[1] for item in reader.readtext(np.array(image_data))])  # Convert image to numpy array
     return results
 
-
-# def save_uploaded_image(image):
-#     # Save the uploaded image to a temporary location
-#     image_data = Image.open(image)
-#     image_path = os.path.join(settings.MEDIA_ROOT, 'uploaded_image.jpg')
-#     image_data.save(image_path)
-#     # Save the image path to the database
-#     Ocr.objects.create(uploaded_image=image_path)
-#     return image_path
-
 def save_uploaded_image(image):
+    """This module saves uploaded image to file and database"""
     # Generate a unique filename
     unique_filename = f"{uuid.uuid4()}.jpg"
 

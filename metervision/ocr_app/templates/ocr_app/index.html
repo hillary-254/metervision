@@ -37,18 +37,14 @@
                 <button type="submit" class="read-btn" >Read Text</button>
             </form>
         </div>
-        
 
         <!-- RESULTS -->
         <div class="results">
             <div class="result-image">
                 <h2>Uploaded Image</h2>
-                <!-- TODO: Implement this -->
-                
                 {% if image_url %}
                     <!-- <img src="{{ image_url.image.url }}" alt="Uploaded Image"/> -->
-                    <img src="/media/{{image_url}}" alt="Uploaded Image"/>
-                    <p>{{image_url}}</p>
+                    <img class="result-image" src="/media/{{image_url}}" alt="Uploaded Image"/>
                 {% else %}
                      <p>No Image Uploaded!</p>
                 {% endif %}
@@ -64,7 +60,6 @@
                     <p class="result-text">{{ results }}</p>
                 {% endif %}
             </div>
-           
         </div>
     </div>
 </body>

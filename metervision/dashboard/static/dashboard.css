@@ -86,7 +86,7 @@ body {
 }
 
 .side-nav__item:hover,  .side-nav__item-active {
-    background-color: #7C5CFC;
+    background-color: #084cdf;
     color: white;
 }
 
@@ -357,14 +357,14 @@ tr > td:first-child {
 }
 
 .btn-purple {
-    background-color: #7C5CFC;
+    background-color: #084cdf;
     color: white;
 }
 
 .btn-white {
     background-color: white;
     color: black;
-    border: 2px solid #7C5CFC;
+    border: 2px solid #084cdf;
 }
 
 /* -------------- PIE CHART -------------- */
@@ -447,7 +447,7 @@ tr > td:first-child {
 }
 
 .fourth {
-    background: #7C5CFC;
+    background: #084cdf;
 }
 
 .fifth {
