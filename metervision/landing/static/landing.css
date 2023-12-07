@@ -1,7 +1,6 @@
 .container {
     display: flex;
     flex-direction: column;
-    height: 100vh;
 }
 .header {
     background-color: red;
@@ -13,13 +12,33 @@
 }
 .main {
     display: flex;
-    border: 1px solid black;
-    height: 100vh;
-    background-color: blue;
+    border: 1px solid lightgray;
+    height: 80vh;
 }
 .hero_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     flex: 0.5;
 }
+.hero_text > p {
+    font-size: 26px;
+    font-weight: 500;
+}
+.hero_text > button {
+    width: 120px;
+}
+.hero_text > p > span {
+    display: block;
+    color: blue;
+}
 .hero_image {
+    display: flex;
     flex: 0.5;
+    max-width: 600px;
+    background-color: yellowgreen;
+}
+.hero_image > img {
+    object-fit: cover;
+    max-width: 500px;
 }

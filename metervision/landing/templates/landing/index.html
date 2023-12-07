@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+     <link rel="stylesheet" href="/metervision/landing/static/landing.css" />
     {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,12 +24,13 @@
      </div>
      <div class="main">
           <div class="hero_text">
-               <p>Make your</p>
-               <p class="hero_highlight">Utility Payments</p>
-               <p>easier with MeterVision</p>
+               <p>Make your <span>Utility Payments</span><span>easier with MeterVision</span></p>
+               <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam est corporis provident illo quia delectus sed tenetur unde laboriosam sit ratione perferendis, natus iure vitae minima beatae quasi veritatis sapiente!</p>
+               <button>Get Started</button>
           </div>
           <div class="hero_image">
-               Hero Image
+               <img src="{% static 'images/hero-image-by-freepik.jpg' %}" alt="Your Image">
+               <img src="/metervision/landing/static/images/hero-image-by-freepik.jpg" alt="Your Image">
           </div>
      </div>
    </div>
