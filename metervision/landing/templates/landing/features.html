@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <!-- use search and replace to remove on deployment -->
+     <link rel="stylesheet" href="/metervision/landing/static/landing.css" />
+    
+     <!-- {% load static %} -->
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="{% static 'landing.css' %}" />
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,400;0,500;0,600;0,800;1,800&display=swap" rel="stylesheet">     
+     <title>MeterVision - Features</title>
+</head>
+<body>
+   <div class="container">
+     <div class="header">
+          <ul class="header_menu">
+               <li><a href="#">HOME</a></li>
+               <li><a href="#">FEATURES</a></li>
+               <li><a href="#">ABOUT</a></li>
+               <li><a href="#">BLOG</a></li>
+               <li><a href="https://github.com/hillary-254/metervision">GITHUB</a></li>
+               <li><a href="#">LOGIN</a></li>
+          </ul>
+     </div>
+     <div class="main" class="feature_page">
+        <!-- flex direction problem -->
+        <!-- main causes the wierd flex issue while feature_page doesn't -->
+        <!-- feature_page was a compromise but still doesn't fully fix the underlying issue -->
+        <h1>Features</h1>
+        <div class="feature">
+            <p class="feature_heading">Automatic Meter Reading</p>
+            <p class="feature_desc">Say goodbye to manually reading your meter. MeterVision uses cutting-edge OCR technology to seamlessly capture your meter readings, ensuring accuracy and convenience.</p>
+        </div>
+        <br/>
+        <div class="feature">
+            <p class="feature_heading">Digital Billing</p>
+            <p class="feature_desc">Receive your bills instantly and securely within the app. No more waiting for paper bills or worrying about lost mail.</p>
+        </div>
+        <br/>
+        <div class="feature">
+            <p class="feature_heading">Multiple Payment Options</p>
+            <p class="feature_desc">Pay your bills directly through the app using various payment methods like mobile money, debit/credit cards, or online banking.</p>
+        </div>
+        <br/>
+        <div class="feature">
+            <p class="feature_heading">Track Your Usage</p>
+            <p class="feature_desc">Monitor your electricity consumption over time with detailed usage charts and graphs. Gain valuable insights into your energy habits and identify areas for potential savings.</p>
+        </div>
+        <br/>
+        <div class="feature">
+            <p class="feature_heading">Set Budget Alerts</p>
+            <p class="feature_desc">Stay on top of your electricity expenses by setting personalized budget alerts. Receive notifications when you are approaching your budget limit, allowing you to take control of your spending.</p>
+        </div>
+        <br/>
+        <div class="feature">
+            <p class="feature_heading">Multiple Account Management</p>
+            <p class="feature_desc">Manage multiple electricity accounts belonging to different properties within a single app.</p>
+        </div>
+        <br/>
+        <div class="feature">
+            <p class="feature_heading">Easy to Use</p>
+            <p class="feature_desc">The app is designed with a user-friendly interface that is intuitive and easy to navigate, even for non-technical users.</p>
+        </div>
+        <br/>
+        <div class="feature">
+            <p class="feature_heading">Secure and Reliable</p>
+            <p class="feature_desc">MeterVision uses industry-standard security protocols to ensure the safety and integrity of your data.</p>
+        </div>
+        <br/>
+
+        <!-- <div class="hero_text">
+            <p class="hero_text_main">Make your <span class="hero_highlight">Utility Payments</span> <span>easier with MeterVision.</span></p>
+            <p class="description">No more bill hassles. Metervision makes paying your utilities simple. Scan your meter, view your bill, and pay instantly.</p>
+            <button>Get Started</button>
+        </div> -->
+
+     </div>
+
+
+     <!-- <div class="footer">
+          <ul class="footer_menu">
+               <li>GITHUB</li>
+               <li>©️ 2023 - MeterVision</li>
+          </ul>
+     </div> -->
+   </div>
+</body>
+</html>

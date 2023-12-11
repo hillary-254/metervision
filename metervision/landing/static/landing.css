@@ -50,6 +50,7 @@ a {
     height: 80vh; /* Full Height no scrolling works with gap: 20px in container */
     /* margin: 20px; */
     padding: 50px;
+    padding-top: 0px;
 }
 
 .hero_text {
@@ -123,6 +124,49 @@ a {
     object-fit: cover;
     width: 100%;
     border-radius: 40px;
+}
+
+/* FEATURE PAGE */
+.feature_page {
+    justify-content: center;
+}
+
+.feature {
+    max-height: fit-content;
+    max-width: 500px;
+    margin-bottom: 10px;
+    text-align: center;
+    justify-content: center;
+    /* border-bottom: 1px;
+    border-bottom-style: solid;
+    border-color: white; */
+    text-align: center;
+}
+
+.feature_heading {
+    margin: 10px;
+    font-size: 50px;
+    font-weight: 800;
+
+    /* GRADIENT START*/
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(90deg, rgba(116,1,170,1) 0%, rgba(8,76,223,1) 42%, rgba(194,90,255,1) 100%);
+    /* GRADIENT END */
+}
+
+.feature_desc {
+    margin: 10px;
+}
+
+/* ABOUT PAGE */
+.about {
+    text-align: center;
+}
+
+.values {
+    list-style: none;
 }
 
 /* -- FOOTER SECTION -- */
