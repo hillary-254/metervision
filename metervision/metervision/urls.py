@@ -25,6 +25,7 @@ urlpatterns = [
     path('', include('landing.urls')),
     path('ocr/', include('ocr_app.urls')),
     path('dash/', include('dashboard.urls')),
+    path('login/', include('authentication.urls')),
 ]
 
 if settings.DEBUG:
