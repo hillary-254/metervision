@@ -18,12 +18,12 @@
      <div class="header">
           <ul class="header_menu">
                <li><a href="#">HOME</a></li>
-               <li><a href="#">FEATURES</a></li>
-               <li><a href="#">ABOUT</a></li>
+               <li><a href="/features">FEATURES</a></li>
+               <li><a href="/about">ABOUT</a></li>
                <li><a href="#">BLOG</a></li>
                <li><a href="https://github.com/hillary-254/metervision">GITHUB</a></li>
                {% if user.is_authenticated %}
-                    <p>{{ user.username }}!</p>
+                    <p class="username"><a href="/dash">{{ user.username }}!</a></p>
                     <li><a href="{% url 'authentication:logout' %}">LOGOUT</a></li>
                {% else %}
                     <li><a href="{% url 'authentication:login' %}">LOGIN</a></li>

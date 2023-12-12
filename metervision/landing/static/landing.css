@@ -13,13 +13,33 @@ body {
 .header {
     font-size: 15px;
     font-weight: 600;
-    margin: 20px;
+    margin: 10px;
 }
 
 .header_menu {
     list-style: none;
     display: flex;
     justify-content: space-around;
+    align-items: center;
+}
+
+.username {
+    border: 1px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: grey;
+    padding: 5px 10px;
+}
+
+.username > a {
+    font-weight: 800;
+    
+    /* GRADIENT START*/
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(90deg, rgba(116,1,170,1) 0%, rgba(8,76,223,1) 42%, rgba(194,90,255,1) 100%);
+    /* GRADIENT END */
 }
 
 /* -- HEADER LINKS START */
@@ -91,7 +111,12 @@ a {
     margin-bottom: 50px;
 }
 
-.hero_text > button {
+.hero_text > a {
+    margin: 10px;
+    max-width: 200px;
+}
+
+.hero_text > a > button {
     width: 200px;
     height: 50px;
     min-height: 50px;
@@ -102,7 +127,7 @@ a {
     font-weight: 400;
     background-color: black;
     color: white;
-    margin: 10px;
+    
 
     background: rgb(1,55,170);
     background: linear-gradient(90deg, rgba(1,55,170,1) 0%, rgba(8,76,223,1) 60%, rgba(90,141,255,1) 100%); 

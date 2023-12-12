@@ -77,6 +77,14 @@ body {
   flex-shrink: 0;
 }
 
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: white;
+}
+
 .side-nav__item.last-item {
     margin-bottom: 32px;
 }
