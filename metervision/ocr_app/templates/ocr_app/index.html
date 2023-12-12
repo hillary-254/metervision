@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCR App</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'ocr_app.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container">
+        
+        <!-- Upload Form -->
+        <div class="upload_form">
+            <h1>MeterVision™️ OCR</h1>
+            <form class="form" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <span class="form-title">Upload your Image</span>
+                <p class="form-paragraph">
+                    jpg / jpeg / png
+                </p>
+                <label for="image-input" class="drop-container">
+                    <span class="drop-title">Drop files here</span>
+                    or
+                    <input type="file" accept="image/*" id="file-input" name="image" required>
+                </label>
+                <input type="radio" name="ocr_type" value="pytesseract" class="radio" id="radio-btn"> 
+                <label for="radio-btn" class="radio_label">Pytesseract</label>
+                <input type="radio" name="ocr_type" value="easyocr" class="radio">
+                <label for="radio-btn" class="radio_label">EasyOCR</label> 
+                <input type="radio" name="ocr_type" value="both" class="radio">
+                <label for="radio-btn" class="radio_label">Both</label>
+                <button type="submit" class="read-btn" >Read Text</button>
+            </form>
+        </div>
+
+        <!-- RESULTS -->
+        <div class="results">
+            <div class="result-image">
+                <h2>Uploaded Image</h2>
+                {% if image_url %}
+                    <!-- <img src="{{ image_url.image.url }}" alt="Uploaded Image"/> -->
+                    <img class="result-image" src="/media/{{image_url}}" alt="Uploaded Image"/>
+                {% else %}
+                     <p>No Image Uploaded!</p>
+                {% endif %}
+            </div>
+            <div class="result-image">
+                <h2>Processed Result</h2>
+                <h3>Pytesseract</h3>
+                {% if text %}
+                    <p class="result-text">{{ text }}</p>
+                {% endif %}
+                <h3>EasyOCR</h3>
+                {% if results %}
+                    <p class="result-text">{{ results }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

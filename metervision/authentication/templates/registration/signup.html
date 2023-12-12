@@ -1,0 +1,37 @@
+<!-- authentication/templates/registration/signup.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- use search and replace to remove on deployment -->
+    <link rel="stylesheet" href="/metervision/authentication/static/auth.css" />
+    <link rel="stylesheet" href="/metervision/authentication/static/signup.css" />
+
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'auth.css' %}" />
+    <link rel="stylesheet" href="{% static 'signup.css' %}" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,400;0,500;0,600;0,800;1,800&display=swap" rel="stylesheet">     
+    <title>MeterVision - Signup</title>
+</head>
+<body>
+    <div class="form-box">
+        <form class="form" method="post" action="{% url 'authentication:signup' %}">
+            {% csrf_token %}
+            <p class="form-title">Sign up</p>
+            <span class="subtitle">Create a free account with your email.</span>
+            
+            {{ form.as_p }}
+            
+            <button type="submit" class="submit">Sign up</button>
+        </form>
+        <div class="form-section">
+            <p class="signup-link">Have an account? <a href="{% url 'authentication:login' %}">Log in</a> </p>
+        </div>
+    </div>
+</body>
+</html>

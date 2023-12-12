@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <!-- use search and replace to remove on deployment -->
+     <link rel="stylesheet" href="/metervision/landing/static/landing.css" />
+    
+     <!-- {% load static %} -->
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="{% static 'landing.css' %}" />
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,400;0,500;0,600;0,800;1,800&display=swap" rel="stylesheet">     
+     <title>MeterVision - About</title>
+</head>
+<body>
+   <div class="container">
+     <div class="header">
+          <ul class="header_menu">
+               <li><a href="/">HOME</a></li>
+               <li><a href="/features">FEATURES</a></li>
+               <li><a href="/about">ABOUT</a></li>
+               <li><a href="#">BLOG</a></li>
+               <li><a href="https://github.com/hillary-254/metervision">GITHUB</a></li>
+               {% if user.is_authenticated %}
+                    <p class="username"><a href="/dash">{{ user.username }}!</a></p>
+                    <li><a href="{% url 'authentication:logout' %}">LOGOUT</a></li>
+               {% else %}
+                    <li><a href="{% url 'authentication:login' %}">LOGIN</a></li>
+               {% endif %}
+          </ul>
+     </div>
+     <div class="main">
+        <div class="about">
+            <h1>About Us</h1>    
+            <p>MeterVision was born out of a simple frustration: the time-consuming and inconvenient process of managing electricity bills. We believe that paying for essential services should be quick, easy, and transparent.</p>
+            
+            <h2>Our Mission</h2>
+            <p>To revolutionize the way people manage their electricity bills by providing a seamless and user-friendly experience. We aim to empower individuals with real-time insights into their energy consumption and offer convenient digital payment options.</p>
+            
+            <h2>Our Values</h2> 
+            <ul class="values">
+                <li><strong>Convenience:</strong> We believe in making life easier for our users by offering a simple and intuitive app that eliminates the need for manual meter reading and paper bills.</li>
+                <li><strong>Transparency:</strong> We are committed to providing accurate and transparent information about electricity consumption and billing charges.</li>
+                <li><strong>Security:</strong> We prioritize the safety and security of your data by employing industry-standard encryption and security protocols.</li>
+                <li><strong>Sustainability:</strong> We are passionate about promoting sustainable energy practices by encouraging users to monitor their consumption and identify areas for energy conservation.</li>
+            </ul>
+
+            <h2>Our Team</h2>
+            <p>MeterVision is driven by a team of passionate individuals with extensive experience in technology, energy, and finance. We are united by a common goal: to create a more efficient and sustainable energy future for everyone.</p>
+            <p>Join us on our mission to revolutionize the way you manage your electricity bills! Download MeterVision today and experience the difference.</p>
+        </div>   
+     </div>
+
+
+     <!-- <div class="footer">
+          <ul class="footer_menu">
+               <li>GITHUB</li>
+               <li>©️ 2023 - MeterVision</li>
+          </ul>
+     </div> -->
+   </div>
+</body>
+</html>

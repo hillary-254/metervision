@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- use search and replace to remove on deployment -->
+    <link rel="stylesheet" href="/metervision/authentication/static/auth.css" />
+
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'auth.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,400;0,500;0,600;0,800;1,800&display=swap" rel="stylesheet">     
+    <title>MeterVision - LOGIN</title>
+</head>
+<body>
+    <div class="form-box">
+        <form class="form" method="post" action="{% url 'authentication:login' %}">
+            {% csrf_token %}
+            <p class="form-title">Log in to your account</p>
+            {% if messages %}
+                <ul class="message">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+    
+            <div class="input-container">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-container">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="submit">Login</button>
+        </form>
+        <div class="form-section">
+            <p class="signup-link">No account? <a href="{% url 'authentication:signup' %}">Sign up</a></p>
+        </div>
+    </div>
+
+</body>
+</html>
