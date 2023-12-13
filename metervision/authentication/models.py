@@ -1,6 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
+
 class UserProfile(AbstractUser):
     # Add any additional fields you want to include in your user model
     # For example:

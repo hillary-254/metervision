@@ -1,6 +1,7 @@
+"""This module contains the landing page and its multiple pages"""
 from django.shortcuts import render
 
-# Create your views here.
+
 def landingPage(request):
     return render(request, 'landing/index.html')
 

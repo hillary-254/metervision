@@ -3,18 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MeterVision - Dashboard</title>
+
     {% load static %}
     <link rel="stylesheet" href="{% static 'dashboard.css' %}">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>MeterVision - Dashboard</title>
 </head>
 
 <body>
     <div class="container">
         <nav class="sidebar">  
-            <!-- TODO: Add humburger menu icon when in mobile view -->
+            <!-- TODO: Add hamburger menu icon when in mobile view -->
             <div>
                 <div class="sidebar__logo">
                     <h2 class="sidebar__logo-header">MeterVision™️</h2>    
@@ -89,7 +91,7 @@
                         <a href="/ocr"><span>Image Scanner</span></a>
                     </li>
                     {% endif %}
-
+                </ul>
             </div>          
             
             <ul class="side-nav">

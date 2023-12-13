@@ -1,11 +1,12 @@
-# authentication/views.py
-
+"""This module contains login and signup pages"""
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 
+
 def signup_view(request):
+    """Signup page redirects to dashboard"""
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
@@ -19,6 +20,7 @@ def signup_view(request):
 
 
 def login_view(request):
+    """Login page also redirects to dashboard"""
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -32,5 +34,6 @@ def login_view(request):
     return render(request, 'registration/login.html')
 
 def logout_view(request):
+    """Redirects to landing page after logout"""
     logout(request)
     return redirect('landing:landing')
